@@ -1,0 +1,25 @@
+.options {
+  padding-left: 8vw;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.container {
+  min-height: 80px;
+}
+
+.options > * {
+  padding-right: 20px;
+}
+
+.options > button {
+  padding-right: 10px;
+}
+
+#filterBtn {
+  padding-left: 10px;
+}
+
+.clearBtn {
+  background: none;
+}

@@ -1,0 +1,10 @@
+<div *ngIf='loggedIn'>
+  <span *ngIf='profile.mine' class='actions'>
+    <button id="edit" (click)='edit()' aria-label='Edit' color='primary' mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button id="delete" (click)='delete()' aria-label='Delete' color='primary' mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </span>
+</div>

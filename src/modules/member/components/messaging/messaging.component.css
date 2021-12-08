@@ -1,0 +1,9 @@
+mat-paginator {
+  background: transparent;
+  margin-right: 22vw;
+}
+
+mat-grid-list {
+  margin-top: 20px;
+  min-height: 520px;
+}

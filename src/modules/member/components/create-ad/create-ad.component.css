@@ -1,0 +1,26 @@
+.create-ad {
+  justify-content: center;
+  margin: 5vh auto 10px;
+}
+
+mat-card {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+}
+
+.form-element {
+  width: 500px;
+  padding-bottom: 2vh
+}
+
+
+img {
+  padding-bottom: 2vh
+}
+
+a {
+  padding-left: 4vw;
+}

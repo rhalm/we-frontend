@@ -1,0 +1,11 @@
+<mat-card (click)='open()'>
+  <div [class]="preview.readByUser ? 'read' : 'new'" class='conv-info'>
+    <p>{{preview.title}}</p>
+    <p>{{preview.preview}}</p>
+  </div>
+  <div class='profile-info'>
+    <app-profile-info
+      [profile]='preview.profile'
+      [truncateAt]='42'></app-profile-info>
+  </div>
+</mat-card>

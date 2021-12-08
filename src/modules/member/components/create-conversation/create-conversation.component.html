@@ -1,0 +1,38 @@
+<div class='dialog'>
+  <h1 mat-dialog-title>Send new message</h1>
+
+  <form (ngSubmit)='onSubmit(formGroup.value)' [formGroup]='formGroup' class='form'>
+    <br>
+    <mat-form-field class='form-element'>
+      <label>
+        <input autocomplete='off' formControlName='title' matInput
+               placeholder='Title' required />
+      </label>
+      <mat-error *ngIf="!formGroup.controls['title'].valid && formGroup.controls['title'].touched">
+        Required field, must be between 5 and 40 characters.
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class='form-element'>
+      <label>
+<textarea formControlName='content' matAutosizeMaxRows='15' matAutosizeMinRows='8' matInput matTextareaAutosize
+          placeholder='Content' required></textarea>
+      </label>
+      <mat-error *ngIf="!formGroup.controls['content'].valid && formGroup.controls['content'].touched">
+        Required field, must be less or equal to 500 characters.
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <div mat-dialog-actions>
+      <button [disabled]='!formGroup.valid' color='primary' mat-raised-button type='submit'>Send</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+
+      <span *ngIf='sent' class='result'>Sent!</span>
+    </div>
+    <br>
+
+  </form>
+
+</div>

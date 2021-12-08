@@ -1,0 +1,18 @@
+<mat-form-field>
+  <mat-select
+    [formControl]='selectedOptions'
+    [placeholder]='title'
+    [multiple]='multi'
+    [required]='required'>
+    <mat-option>
+      <ngx-mat-select-search
+        placeholderLabel='Search'
+        noEntriesFoundLabel='No results found'
+        [formControl]='filterControl'></ngx-mat-select-search>
+    </mat-option>
+    <mat-option *ngFor='let option of filteredOptions | async'
+                [value]='option'>
+      {{option}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,32 @@
+<mat-toolbar class='toolbar' color='primary'>
+  <div fxHide.gt-sm='true' fxShow='true'>
+    <button (click)='sidenav.toggle()' mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <a id="explore" class='main' mat-button routerLink='/'>
+    <span>Explore</span>
+  </a>
+  <span class='spacer'></span>
+  <div fxHide.lt-md='true' fxShow='true'>
+
+    <member-nav-links *ngIf='loggedIn'></member-nav-links>
+    <guest-nav-links *ngIf='!loggedIn'></guest-nav-links>
+
+  </div>
+
+</mat-toolbar>
+<mat-sidenav-container fullscreen fxFlexFill>
+  <mat-sidenav #sidenav fxHide.gt-sm='true' fxLayout='column' mode='over' opened='false'>
+    <br><br><br><br>
+    <div fxLayout='column'>
+      <guest-nav-links *ngIf='!loggedIn' fxLayout='column'></guest-nav-links>
+      <member-nav-links *ngIf='loggedIn' fxLayout='column'></member-nav-links>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <br><br><br>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,4 @@
+<div *ngIf='searchTerm'>
+  <div class='search-word'>Results for "{{searchTerm}}":</div>
+  <app-feed [searchTerm]='searchTerm'></app-feed>
+</div>

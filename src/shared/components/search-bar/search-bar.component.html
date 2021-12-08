@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <label>
+    <input id='searchInput' (keyup.enter)='search()' [(ngModel)]='searchValue' autocomplete='off' matInput type='text'>
+  </label>
+  <button id='searchButton' (click)='search()' aria-label='Search' mat-button mat-icon-button matSuffix>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>

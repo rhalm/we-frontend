@@ -1,0 +1,22 @@
+<div>
+  <div *ngIf='success; else generalError'>
+    <div *ngIf='loaded; else loading'>
+      <div *ngIf='found; else notFound'>
+        <div id='profile'>
+          <app-profile-info [profile]='profile'></app-profile-info>
+          <member-profile-actions class='actions' [profile]='profile'></member-profile-actions>
+        </div>
+        <app-feed [userId]='profile.userId'></app-feed>
+      </div>
+    </div>
+  </div>  
+</div>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+<ng-template #notFound>
+  <div class='main-result'>Profile not found</div>
+</ng-template>
+<ng-template #generalError>
+  <div class='main-result'>Something went wrong</div>
+</ng-template>

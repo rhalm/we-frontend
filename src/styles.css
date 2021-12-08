@@ -1,0 +1,83 @@
+/* Global Styles */
+
+* {
+  font-family: 'Roboto', Arial, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-result {
+  margin-top: 8vh;
+  text-align: center;
+}
+
+.result {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+router-outlet + * {
+  padding: 0 0;
+}
+
+/* Text */
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h1, h2 {
+  font-weight: lighter;
+}
+
+
+/* Links */
+
+a {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+
+/* Buttons */
+
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.button:hover, button:hover {
+  opacity: 0.7;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

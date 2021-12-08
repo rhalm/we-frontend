@@ -1,0 +1,39 @@
+mat-card {
+  cursor: pointer;
+  padding-bottom: 10px;
+
+}
+
+.new {
+  font-weight: bold;
+}
+
+.conv-info {
+  display: inline-block;
+  width: 400px;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.profile-info {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+    to bottom,
+    white,
+    #acacac,
+    white
+  ) 1 100%;
+  border-right: 0;
+  padding-left: 30px;
+  display: inline-block;
+  width: 380px;
+  vertical-align: top;
+}
+
+
+@media only screen and (max-width: 850px) {
+  .profile-info {
+    display: none
+  }
+}

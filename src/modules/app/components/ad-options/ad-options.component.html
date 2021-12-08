@@ -1,0 +1,26 @@
+<div class='container'>
+  <div *ngIf='loaded' class='options'>
+    <app-searchable-select
+      [options]='categoryList'
+      [required]='false'
+      [multi]='true'
+      [selectedOptions]='selectedCategories'
+      title='Category'></app-searchable-select>
+
+    <app-searchable-select
+      [options]='locationList'
+      [selectedOptions]='selectedLocations'
+      title='Locations'
+      [multi]='true'></app-searchable-select>
+
+    <mat-checkbox [(ngModel)]='withImageOnly'>only with images</mat-checkbox>
+    <button
+      id="filterBtn"
+      (click)='filter()'
+      color='primary'
+      mat-raised-button>
+      Filter
+    </button>
+    <button (click)='clear()' class='clearBtn'>Clear</button>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+
+.main {
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.title {
+  text-align: center;
+  padding-left: 1.5vh;
+  padding-top: 0;
+  padding-bottom: 2vh;
+  font-size: large;
+}
+
+.scrollable {
+  padding: 10px 10px 10px 10px;
+  border-width: 1px;
+  border-style: solid;
+
+  min-height: 500px;
+  border-image: linear-gradient(
+    to bottom,
+    white,
+    #acacac,
+    white
+  ) 1 100%;
+}
+
+ hr{
+    padding: 0px;
+    margin: 0px;    
+  }
+
+.scrollable::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bebebe;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  max-width: 800px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 75vh;
+  overflow-y: scroll
+}
+
+mat-form-field {
+  width: 80%;
+  padding: 2vh 50px 2vh 4vw;
+}
+
+.content {
+  display: inline;
+  padding: 8px 8px;
+  word-break: break-word;
+  border-radius: 10px;
+  position: relative;
+  max-width: 500px;
+  white-space: pre-wrap;
+}
+
+
+.message {
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+}
+
+.sent {
+  word-break: break-word;
+  flex-direction: row-reverse;
+}
+
+.sent .content {
+  color: white;
+  background: #4052b5;
+  align-self: flex-end;
+  word-break: break-word;
+  flex-direction: row-reverse;
+}
+
+p .content {
+  display: inline-block;
+  width: 55vw;
+  float: left;
+}
+
+.received .content {
+  max-width: 500px;
+  word-break: break-word;
+  background: #e5e5ea;
+  color: black;
+}
+
+.date {
+   margin-left: 10px;
+}

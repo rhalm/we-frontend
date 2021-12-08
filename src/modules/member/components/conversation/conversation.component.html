@@ -1,0 +1,43 @@
+<div *ngIf='!notFound; else noResult' class='main'>
+  <div *ngIf='title' class='centered title'><b>{{title}}</b></div>
+  <hr>
+  <div *ngIf='messages; else loading' class='list centered scrollable'>
+
+    <div *ngFor='let message of messages'>
+
+      <div [class]="message.senderId == userId ? 'sent' : 'received'" class="message">
+        <sub class="date">{{ format(message.createdAt) }}</sub>
+      </div>
+      <div [class]="message.senderId == userId ? 'sent' : 'received'" class='message'>
+        <p class='content'>{{message.content}}<br></p>
+      </div>
+        
+    </div>
+  </div>
+  
+  <div class='centered'>
+    <form (ngSubmit)='sendMessage(newMessage.value)'>
+
+      <mat-form-field id="sendMessage">
+        <label>
+<textarea #newMessage class='new-message' matAutosizeMaxRows='10' matAutosizeMinRows='1' matInput
+          matTextareaAutosize
+          maxlength='500' placeholder='New message'></textarea>
+        </label>
+        <mat-hint align='end'>{{newMessage.value.length}} / 500</mat-hint>
+      </mat-form-field>
+      <button [disabled]='!isValid(newMessage.value)'
+              mat-raised-button type='submit'>Send
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<ng-template #noResult>
+  <div class='main-result'>Conversation not found</div>
+</ng-template>

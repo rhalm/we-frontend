@@ -1,0 +1,80 @@
+<div class='create-ad'>
+  <mat-card>
+    <form (ngSubmit)='onSubmit()' *ngIf='formGroup' [formGroup]='formGroup' class='form'>
+      <br>
+      <mat-form-field class='form-element'>
+        <label>
+          <input autocomplete='off' formControlName='title' matInput
+                 placeholder='Title' required />
+        </label>
+        <mat-error *ngIf="!formGroup.controls['title'].valid && formGroup.controls['title'].touched">
+          Required field, must be between 5 and 40 characters.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class='form-element'>
+        <label>
+<textarea formControlName='description' matAutosizeMaxRows='10' matAutosizeMinRows='6' matInput
+          matTextareaAutosize
+          placeholder='Description'></textarea>
+        </label>
+        <mat-error *ngIf="!formGroup.controls['description'].valid && formGroup.controls['description'].touched">
+          Must be less than or equal to 500 characters.
+        </mat-error>
+        <mat-hint align='end'>{{formGroup.controls['description'].value?.length || "0"}} / 500</mat-hint>
+      </mat-form-field>
+
+      <div>
+        <mat-form-field>
+          <label>
+            <input type='text'
+                   placeholder='Location'
+                   matInput
+                   formControlName='location' required>
+          </label>
+          <mat-error *ngIf="!formGroup.controls['location'].valid && formGroup.controls['location'].touched">
+            Required field, must be between 2 and 20 characters.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <div *ngIf='ad == null'>
+        <br>
+        <app-searchable-select
+                               [options]='categoryList'
+                               [required]='true'
+                               [multi]='false'
+                               [selectedOptions]='selectedCategory'
+                               title='Category'></app-searchable-select>
+        </div>
+        <br>
+      </div>
+
+      <div class='form-element'>
+        <input
+          (change)='onFileChange($event)'
+          accept='image/*'
+          hidden
+          id='file'
+          type='file'>
+        <label class='mat-raised-button' for='file'>Choose Image</label>
+      </div>
+
+      <mat-error *ngIf='isFileTooBig' class='alert alert-danger'>
+        <div>Size should be less than {{maxSizeStr}}</div>
+      </mat-error>
+      <img *ngIf='imageSrc' alt='Image preview' [src]='imageSrc' style='height: 100px; width:auto'>
+      <br>
+
+      <div class='form-element'>
+        <button [disabled]='!isValid()' class='button' color='primary' mat-raised-button type='submit'>Save
+        </button>
+        <a (click)='cancel()' *ngIf='ad != null' mat-button>Cancel</a>
+      </div>
+      <div *ngIf='sent'>
+        <div *ngIf='success' class='result'>Success!</div>
+        <div *ngIf='!success' class='result'>Something went wrong</div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+

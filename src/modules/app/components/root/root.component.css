@@ -1,0 +1,16 @@
+.main {
+  font-size: 90%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+span {
+  margin-left: 6vw;
+}

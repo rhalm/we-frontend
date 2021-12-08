@@ -1,0 +1,10 @@
+#profile {
+  margin-left: 8vw;
+  margin-right: 4vw;
+  margin-top: 4vh;
+}
+
+#profile > member-profile-actions {
+  margin-top: 10vh;
+  padding-left: 10px;
+}

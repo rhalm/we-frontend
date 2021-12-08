@@ -1,0 +1,42 @@
+<div class='page'>
+  <div *ngIf='success; else generalError'>
+    <div *ngIf='found; else notFound'>
+      <div *ngIf='loaded; else loadingScreen' class='info'>
+        <mat-card class='details'>
+          <p>
+            <mat-card-title>{{ ad.title }}</mat-card-title>
+            <mat-card-subtitle>
+              <span><b>Location</b>: {{ ad.location }}</span>
+              <br>
+              <span><b>Category</b>: {{ ad.category }}</span>
+            </mat-card-subtitle>
+          </p>
+
+          <mat-card-content>
+            {{ ad.description }}
+          </mat-card-content>
+          <div class='box'>
+            <img [src]='imageSrc' alt='Ad image' class='contain'>
+          </div>
+
+          <mat-card-footer>
+            <member-ad-actions [profile]='profile' [id]='ad.id'></member-ad-actions>
+          </mat-card-footer>
+        </mat-card>
+
+        <mat-card (click)='onProfileClick()' id='profile-info'>
+          <app-profile-info [profile]='profile' [truncateAt]='45'></app-profile-info>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loadingScreen>
+  <app-loading></app-loading>
+</ng-template>
+<ng-template #notFound>
+  <div class='main-result'>Ad not found</div>
+</ng-template>
+<ng-template #generalError>
+  <div class='main-result'>Something went wrong</div>
+</ng-template>

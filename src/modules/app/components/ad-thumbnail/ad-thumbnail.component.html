@@ -1,0 +1,10 @@
+<mat-card (click)='onClick()' class='ad-thumbnail'>
+  <mat-card-title>{{ad.title}}</mat-card-title>
+  <div class='box'>
+    <img [src]='imageSrc' alt='Ad preview' class='cover' id='AdPreview'>
+  </div>
+  <div class='footer'>
+    <small>{{ad.category}}</small>
+    <small class='right'>{{ad.location}}</small>
+  </div>
+</mat-card>

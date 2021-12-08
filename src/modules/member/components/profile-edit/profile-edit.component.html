@@ -1,0 +1,56 @@
+<div *ngIf='loaded; else loading' class='main'>
+  <div *ngIf='found; else notFound'>
+    <div *ngIf='profile.mine; else unauthorized'>
+
+      <mat-card-title>Edit your profile information</mat-card-title>
+      <form (ngSubmit)='onSubmit()' [formGroup]='formGroup' class='form'>
+        <br>
+
+        <mat-form-field class='form-element'>
+          <label>
+<textarea class='introduction' formControlName='introduction'
+          matAutosizeMaxRows='5' matAutosizeMinRows='3' matInput matTextareaAutosize
+          placeholder='Introduction'></textarea>
+          </label>
+          <mat-error *ngIf="!formGroup.controls['introduction'].valid && formGroup.controls['introduction'].touched">
+            Must be less than or equal to 100 characters.
+          </mat-error>
+        </mat-form-field>
+
+        <div class='form-element'>
+          <input
+            (change)='onFileChange($event)'
+            accept='image/*'
+            hidden
+            id='file'
+            type='file'>
+          <label class='mat-raised-button' for='file'>Choose Image</label>
+        </div>
+        <mat-error *ngIf='isFileTooBig' class='alert alert-danger'>
+          <div>Size should be less than {{maxSizeStr}}</div>
+        </mat-error>
+        <img *ngIf='imageSrc' alt='Profile picture preview' [src]='imageSrc' style='height: 100px; width:auto'>
+        <br>
+        <div class='form-element'>
+          <button [disabled]='!(formGroup.valid && !isFileTooBig)' class='button' color='primary' mat-raised-button
+                  type='submit'>Save
+          </button>
+          <a (click)='cancel()' mat-button>Cancel</a>
+          <div *ngIf='saved' class='result'>Success!</div>
+          <div *ngIf='errorSaving' class='result'>Something went wrong, please try again!</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+<ng-template #notFound>
+  <div class='main-result'>Not found</div>
+</ng-template>
+<ng-template #unauthorized>
+  <div class='main-result'>Unauthorized</div>
+</ng-template>

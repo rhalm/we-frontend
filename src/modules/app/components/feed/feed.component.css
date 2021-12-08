@@ -1,0 +1,34 @@
+.mat-grid-list {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-height: 550px;
+  max-width: 1400px;;
+}
+
+.list {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-grid-list {
+    margin-left: 4vw;
+    margin-right: 4vw;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .mat-grid-list {
+    margin-left: 7vw;
+    margin-right: 7vw;
+  }
+}
+
+mat-paginator {
+  margin-right: 6vw;
+  background: transparent;
+}
+
+mat-select {
+  position: fixed;
+  top: 0;
+}

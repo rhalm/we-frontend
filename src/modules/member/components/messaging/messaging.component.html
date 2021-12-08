@@ -1,0 +1,33 @@
+<div *ngIf='!error; else errorText'>
+  <div *ngIf='conversations && counter == conversations.length; else loading'>
+    <div class='list'>
+      <div *ngIf='conversations.length != 0; else noResult'>
+        <mat-grid-list cols='1' rowHeight='100px'>
+          <mat-grid-tile *ngFor='let conv of conversations' [colspan]='1' [rowspan]='1'>
+            <member-conv-preview [preview]='conv'></member-conv-preview>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <mat-paginator (page)='handlePageEvent($event)'
+                    *ngIf='length > 0'
+                    [length]='length'
+                    [pageIndex]='pageIndex'
+                    [pageSize]='5'
+                    [showFirstLastButtons]='true'
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<ng-template #noResult>
+  <div class='main-result'>You don't have any messages yet</div>
+</ng-template>
+
+<ng-template #errorText>
+  <div class='main-result'>Something went wrong</div>
+</ng-template>

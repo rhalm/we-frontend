@@ -1,0 +1,75 @@
+<div class='dialog'>
+  <h1 mat-dialog-title *ngIf='!registration'>Sign in</h1>
+  <h1 mat-dialog-title *ngIf='registration'>Sign up</h1>
+  <form (ngSubmit)='onSubmit(formGroup.value)' [formGroup]='formGroup' class='form'>
+    <div *ngIf='registration'>
+      <mat-form-field class='form-element'>
+        <label>
+          <input autocomplete='off' formControlName='username' matInput (click)='notFound = false'
+                placeholder='Username' required />
+        </label>
+        <mat-error *ngIf="!formGroup.controls['username'].valid && formGroup.controls['username'].touched">
+          Required field
+        </mat-error>
+      </mat-form-field>
+      <br>
+    </div>
+
+    <mat-form-field class='form-element'>
+      <label>
+        <input autocomplete='off' type="email" email formControlName='email' matInput (click)='notFound = false'
+               placeholder='Email' required />
+      </label>
+      <mat-error *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].errors.required && formGroup.controls['email'].touched">
+        Required field
+      </mat-error>
+      <mat-error *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].errors.email">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class='form-element'>
+      <label>
+        <input autocomplete='off' formControlName='password' name="password" type='password' matInput pattern=".{8,}"
+               placeholder='Password' required (click)='notFound = false' />
+      </label>
+      <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched && !formGroup.controls['password'].errors.pattern">
+        Required field
+      </mat-error>
+       <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].errors.pattern">
+         Must contain at least 8 or more characters.
+       </mat-error>
+    </mat-form-field>
+    <div *ngIf='registration'>
+      <mat-form-field class='form-element'>
+        <label>
+          <input autocomplete='off' formControlName='confirmpassword' type='password' matInput pattern="{{ escapeRegex(formGroup.controls['password'].value) }}"
+                placeholder='Confirm Password' required (click)='notFound = false' />
+        </label>
+         <mat-error *ngIf="!formGroup.controls['confirmpassword'].valid && formGroup.controls['confirmpassword'].touched && !formGroup.controls['confirmpassword'].errors.pattern">
+        Required field
+      </mat-error>
+       <mat-error *ngIf="!formGroup.controls['confirmpassword'].valid && formGroup.controls['confirmpassword'].errors.pattern">
+         Passwords do not match
+       </mat-error>
+      </mat-form-field>
+    </div>
+    <br>
+    <div mat-dialog-actions>
+      <button [disabled]='!isValid()' color='primary' mat-raised-button type='submit'>Submit</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </div>
+    <br> 
+    <div *ngIf='response == null && submitted'>
+      <span class='result'>Loading...</span>
+    </div>
+    <div *ngIf='response != null'>
+      <span *ngIf='response.successful' class='result'>Success!</span>
+      <mat-error *ngIf='!response.successful' style='font-size: small'>
+        {{ response.message }}
+      </mat-error>
+    </div>
+
+  </form>
+
+</div>

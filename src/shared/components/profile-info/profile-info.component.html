@@ -1,0 +1,9 @@
+<div *ngIf='profile'>
+  <div class='box'>
+    <img [src]='imageSrc' alt='Profile picture' class='cover'>
+  </div>
+  <div class='info'>
+    <b>{{ profile.username }}</b>
+    <p>{{ introduction }}</p>
+  </div>
+</div>

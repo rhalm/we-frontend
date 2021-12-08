@@ -1,0 +1,7 @@
+
+  <span id='actions' *ngIf='loggedIn'>
+    <button id='editprofile' (click)='this.editProfile()' *ngIf='profile.mine' mat-raised-button>Edit profile information
+    </button>
+    <button id='sendmessage' (click)='this.sendMessage()' *ngIf='!profile.mine' mat-raised-button>Send message</button>
+  </span>
+

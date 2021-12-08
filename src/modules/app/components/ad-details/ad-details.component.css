@@ -1,0 +1,69 @@
+.page {
+  justify-content: center;
+  align-items: center;
+  height: auto;
+
+}
+
+.info {
+  justify-content: center;
+  margin-left: 8vw;
+  margin-right: auto;
+  margin-top: 4vh;
+  width: 90vw;
+}
+
+mat-card-title {
+  padding-bottom: 5px;
+}
+
+#profile-info {
+  cursor: pointer;
+  width: 30vw;
+  max-width: 400px;
+  word-break: break-all;
+  display: inline-block;
+  margin-left: 2vw;
+}
+
+.details {
+  display: inline-block;
+  width: 55vw;
+  float: left;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+mat-card {
+  padding: 20px;
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  float: right;
+}
+
+.actions {
+  float: right;
+}
+
+.box {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.box > img {
+  width: 100%;
+  height: 100%;
+  max-height: 50vh;
+  max-width: 500px;
+}
+
+.contain {
+  object-fit: contain;
+}

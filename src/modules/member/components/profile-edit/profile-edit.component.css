@@ -1,0 +1,27 @@
+.main {
+  margin-top: 5vh;
+  justify-content: center;
+
+}
+
+form {
+  padding: 4vh 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-card-title {
+  padding: 4vh 0 0 100px;
+}
+
+.form-element {
+  width: 500px;
+}
+
+img {
+  margin: 2vh;
+}
+
+a {
+  margin-left: 2vw;
+}
